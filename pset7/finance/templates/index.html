@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <p>
+        User: {{ user }}<br/>
+        Cash Balance: {{ cash_balance }}<br/>
+        Grand Total: {{ grand_total }}<br/>
+    </p>
+    <table style="width:100%">
+        <tr>
+            <th>Symbol</th>
+            <th>Company Name</th>
+            <th>Share Price</th>
+            <th>Stocks Owned</th>
+            <th>Value</th>
+        </tr>
+        {% for stock in stocklist %}
+        <tr>
+            <td> {{ stock["symbol"] }} </td>
+            <td> {{ stock["company_name"] }} </td>
+            <td> {{ stock["current_price"] }} </td>
+            <td> {{ stock["sum(trans)"] }} </td>
+            <td> {{ stock["usd"] }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}

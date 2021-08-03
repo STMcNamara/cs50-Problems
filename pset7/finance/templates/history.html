@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <p>
+        User: {{ user }}<br/>
+    </p>
+    <table style="width:100%">
+        <tr>
+            <th>Symbol</th>
+            <th>Company Name</th>
+            <th>Share Price</th>
+            <th>Transaction Type</th>
+            <th>No. Shares</th>
+            <th>Transaction Date</th>
+        </tr>
+        {% for trans in transactions %}
+        <tr>
+            <td> {{ trans["symbol"] }} </td>
+            <td> {{ trans["company_name"] }} </td>
+            <td> {{ trans["price"] }} </td>
+            <td> {{ trans["type"] }}</td>
+            <td> {{ trans["trans"] }} </td>
+            <td> {{ trans["trans_date"] }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
